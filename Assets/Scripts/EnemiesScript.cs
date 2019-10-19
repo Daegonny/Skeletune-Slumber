@@ -12,7 +12,7 @@ public class EnemiesScript : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         target = GameObject.Find("UFO").GetComponent<Transform>();
-        moveSpeed = Random.Range(2f, 10f);
+        moveSpeed = Random.Range(6f, 10f);
         
     }
 
