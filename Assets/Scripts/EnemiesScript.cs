@@ -16,6 +16,20 @@ public class EnemiesScript : MonoBehaviour
         
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    { // COLOCAR AQUI AS PARADAS DE COLISÂO
+        switch(collision.gameObject.name)
+        {
+            case "SecondRadius":
+                moveSpeed = 50f;
+                break;
+            case "FirstRadius":
+                moveSpeed = 0f;
+                break;
+
+        }
+    }
+
     // Update is called once per frame
     void Update() {
         MoveEnemy();
