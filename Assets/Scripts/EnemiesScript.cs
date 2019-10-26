@@ -13,7 +13,6 @@ public class EnemiesScript : MonoBehaviour
     void Start() {
         target = GameObject.Find("UFO").GetComponent<Transform>();
         moveSpeed = Random.Range(6f, 10f);
-        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -21,7 +20,8 @@ public class EnemiesScript : MonoBehaviour
         switch(collision.gameObject.name)
         {
             case "SecondRadius":
-                moveSpeed = 50f;
+                //moveSpeed = 50f;
+                //gameObject.GetComponent<TimerHandler>().enabled = true;
                 break;
             case "FirstRadius":
                 moveSpeed = 0f;
