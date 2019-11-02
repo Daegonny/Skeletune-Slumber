@@ -61,14 +61,14 @@ public class TimerHandler : MonoBehaviour
                 preencheMelodia("z");
                 if (melodiaPreenchida())
                 {
-                    gameObject.GetComponent<EnemiesOnRadius>().remove();
+                    //gameObject.GetComponent<EnemiesOnRadius>().remove();
                 }
             } else if (Input.GetKey("x"))
             {
                 preencheMelodia("x");
                 if (melodiaPreenchida())
                 {
-                    gameObject.GetComponent<EnemiesOnRadius>().remove();
+                    //gameObject.GetComponent<EnemiesOnRadius>().remove();
                 }
             }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawnerScript : MonoBehaviour
 {
-    public GameObject enemy;
+    public GameObject enemy, enemy2;
     float randX;
     float randY;
     Vector2 whereToSpawn;
@@ -25,7 +25,8 @@ public class EnemySpawnerScript : MonoBehaviour
             randY = Random.Range(-80f, 80f);
             whereToSpawn = new Vector2(randX, randY);
             Instantiate(enemy, whereToSpawn, Quaternion.identity);
-            
+            whereToSpawn = new Vector2(randX, randY);
+            Instantiate(enemy2, whereToSpawn, Quaternion.identity);
         }
     }
 }
