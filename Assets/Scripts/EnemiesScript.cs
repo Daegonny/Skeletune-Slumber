@@ -4,7 +4,7 @@ public class EnemiesScript : MonoBehaviour
 {
     Rigidbody2D rb;
     Transform target;
-    float moveSpeed;
+    public float moveSpeed;
     Vector3 directionToTarget;
     //public GameObject explosion;
 
@@ -12,7 +12,8 @@ public class EnemiesScript : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         target = GameObject.Find("UFO").GetComponent<Transform>();
-        moveSpeed = Random.Range(6f, 10f);
+        //moveSpeed = Random.Range(6f, 10f);
+        moveSpeed = 3;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
