@@ -24,8 +24,8 @@ public class EnemiesOnRadius : MonoBehaviour
         nearestEnemy = new int[4];
         pressed = new bool[4][];
         melodia = new string[4][];
-        melodia[0] = new string[4] { "z", "x", "z", "x"}; // Uma melodia qualquer para o inimigo
-        melodia[1] = new string[4] { "c", "v", "c", "v" };
+        melodia[0] = new string[4] { "up", "up", "left", "up"}; // Uma melodia qualquer para o inimigo
+        melodia[1] = new string[4] { "down", "left", "left", "down" };
         for (int i = 0; i < 4; i++)
         {
             pressed[i] = new bool[4]; // Todas as notas começam sem terem sido pressionadas
@@ -159,7 +159,7 @@ public class EnemiesOnRadius : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if((Input.GetKey("z") || Input.GetKey("x") || Input.GetKey("c") || Input.GetKey("v")) && (timer > 6 || timer <= 0)) // Se ouve input do jogador e o timer está fora de uso
+        if((Input.GetKey("left") || Input.GetKey("right") || Input.GetKey("up") || Input.GetKey("down")) && (timer > 6 || timer <= 0)) // Se ouve input do jogador e o timer está fora de uso
         {
             timer = 6; // O timer volta pra 6s
             notaAtual = 0; // A nota atual volta pra zero
@@ -171,21 +171,21 @@ public class EnemiesOnRadius : MonoBehaviour
                 }
             }
         }
-        if (Input.GetKey("z")) // Se o jogador apertou Z
+        if (Input.GetKey("left")) // Se o jogador apertou Z
         {
-            preencheMelodia("z"); // Tenta preencher a melodia com Z
+            preencheMelodia("left"); // Tenta preencher a melodia com Z
         }
-        else if (Input.GetKey("x")) // Se o jogador apertou X
+        else if (Input.GetKey("right")) // Se o jogador apertou X
         {
-            preencheMelodia("x"); // Tenta preencher a melodia com X
+            preencheMelodia("right"); // Tenta preencher a melodia com X
         }
-        else if (Input.GetKey("c")) // Se o jogador apertou X
+        else if (Input.GetKey("up")) // Se o jogador apertou X
         {
-            preencheMelodia("c"); // Tenta preencher a melodia com X
+            preencheMelodia("up"); // Tenta preencher a melodia com X
         }
-        else if (Input.GetKey("v")) // Se o jogador apertou X
+        else if (Input.GetKey("down")) // Se o jogador apertou X
         {
-            preencheMelodia("v"); // Tenta preencher a melodia com X
+            preencheMelodia("down"); // Tenta preencher a melodia com X
         }
             timer -= Time.deltaTime; // Decrementa o contador de tempo
     }
