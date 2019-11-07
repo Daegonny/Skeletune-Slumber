@@ -24,7 +24,7 @@ public class TimeBarScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(script.timer);
+        //Debug.Log(script.timer);
         if (script.timer > 5){
             sr.sprite = six;
         }
