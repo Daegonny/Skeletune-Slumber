@@ -38,9 +38,9 @@ public class EnemiesOnRadius : MonoBehaviour
         melodias.Add("Enemy2", melodia[1]);
     }
 
-    public void remove(int enemy) // Remove o inimigo mais próximo do centro
+    public void remove(int enemy) // Remove o inimigo mais próximo do centro do tipo n
     {
-        Debug.Log("Remover Enemy" + enemy);
+        //Debug.Log("Remover Enemy" + enemy);
         try
         {
             ArrayList aux = enemies["Enemy"+enemy]; // Um Arraylist para auxiliar a remoção do inimigo
@@ -58,6 +58,10 @@ public class EnemiesOnRadius : MonoBehaviour
         } catch (ArgumentOutOfRangeException e)
         {
             //Debug.Log("forraaa22");
+        }
+        catch (KeyNotFoundException e)
+        {
+            Debug.Log("Não há inimigos para essa nota no raio");
         }
     }
 

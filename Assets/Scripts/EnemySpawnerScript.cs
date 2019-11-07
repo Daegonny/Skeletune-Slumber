@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EnemySpawnerScript : MonoBehaviour
 {
-    public GameObject enemy, enemy2;
+    public GameObject enemy;//, enemy2;
     float randX;
     float randY;
     Vector2 whereToSpawn;
-    public float spawnRate = 5f;
+    public float spawnRate;
     float nextSpawn = 0.0f;
     // Start is called before the first frame update
     void Start()
@@ -21,12 +21,13 @@ public class EnemySpawnerScript : MonoBehaviour
         if(Time.time > nextSpawn)
         {
             nextSpawn = Time.time + spawnRate;
-            randX = Random.Range(-100f, 100.5f);
-            randY = Random.Range(-80f, 80f);
+            randX = Random.Range(-66.6f, 66.65f);
+            randY = Random.Range(-66.6f, 66.6f);
+            //TODO: DONT LET ENEMY SPAWN INSID RADIUS
             whereToSpawn = new Vector2(randX, randY);
             Instantiate(enemy, whereToSpawn, Quaternion.identity);
-            whereToSpawn = new Vector2(randX, randY);
-            Instantiate(enemy2, whereToSpawn, Quaternion.identity);
+            //whereToSpawn = new Vector2(randX, randY);
+            //Instantiate(enemy2, whereToSpawn, Quaternion.identity);
         }
     }
 }

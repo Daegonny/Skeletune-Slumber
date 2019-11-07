@@ -11,7 +11,7 @@ public class EnemiesScript : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
-        target = GameObject.Find("UFO").GetComponent<Transform>();
+        target = GameObject.Find("Player").GetComponent<Transform>();
         //moveSpeed = Random.Range(6f, 10f);
         moveSpeed = 3;
     }
@@ -25,19 +25,20 @@ public class EnemiesScript : MonoBehaviour
                 //gameObject.GetComponent<TimerHandler>().enabled = true;
                 break;
             case "FirstRadius":
-                moveSpeed = 0f;
+                //moveSpeed = 0f;
                 break;
 
         }
     }
 
     // Update is called once per frame
-    void Update() {
+    void FixedUpdate() {
         MoveEnemy();
     }
 
     private void MoveEnemy()
     {
         transform.position = Vector2.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
+        //pegar speed do rb para fazer as animações
     }
 }
