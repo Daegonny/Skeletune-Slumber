@@ -17,7 +17,8 @@ public class EnemiesOnRadius : MonoBehaviour
     {
         enemies = new Dictionary<string, ArrayList>(); // Inicializando dicionário dos inimigos
         melodias = new Dictionary<string, string[]>(); // Inicializando dicionário das melodias
-        timer = Mathf.Infinity; // Setando o tempo para o infinito
+        //timer = Mathf.Infinity; // Setando o tempo para o infinito
+        timer = 0;
 
         string[] aux = new string[4];
         nearestEnemy = new int[4];
@@ -61,7 +62,7 @@ public class EnemiesOnRadius : MonoBehaviour
         }
         catch (KeyNotFoundException e)
         {
-            Debug.Log("Não há inimigos para essa nota no raio");
+            //Debug.Log("Não há inimigos para essa nota no raio");
         }
     }
 
@@ -103,7 +104,7 @@ public class EnemiesOnRadius : MonoBehaviour
                 ArrayList aux = new ArrayList(); // Criamos um Arraylist vazio
                 aux.Add(collision.gameObject); // Adicionamos o inimigo
                 enemies.Add(collision.gameObject.tag, aux); // Adicionamos o Arraylist ao dicionário
-                Debug.Log("Adicionando ao dic Enemy: " + collision.gameObject.tag);
+                //Debug.Log("Adicionando ao dic Enemy: " + collision.gameObject.tag);
             }
             catch (ArgumentOutOfRangeException e)
             {

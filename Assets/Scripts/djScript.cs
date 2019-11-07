@@ -12,7 +12,7 @@ public class djScript : MonoBehaviour{
     }
 
     void Update() {
-        
+
     }
 
     private void FixedUpdate()

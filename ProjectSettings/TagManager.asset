@@ -56,3 +56,6 @@ TagManager:
   - name: Enemies
     uniqueID: 2650932349
     locked: 0
+  - name: Hud
+    uniqueID: 3652817515
+    locked: 0
