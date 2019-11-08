@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemiesOnRadius : MonoBehaviour
 {
-	public IDictionary <string, ArrayList> enemies; // Todos os inimigos dentro do círculo
+	public static IDictionary <string, ArrayList> enemies; // Todos os inimigos dentro do círculo
     public int[] nearestEnemy; // Inimigo mais próximo do centro
     public IDictionary<string, string[]> melodias; // Todas as melodias dos inimigos
     public float timer; // Timer para input do jogador
@@ -39,52 +39,20 @@ public class EnemiesOnRadius : MonoBehaviour
         melodias.Add("Enemy2", melodia[1]);
     }
 
-    public void remove(int enemy) // Remove o inimigo mais próximo do centro do tipo n
+    void calculaMaisProximo()
     {
-        //Debug.Log("Remover Enemy" + enemy);
-        try
-        {
-            ArrayList aux = enemies["Enemy"+enemy]; // Um Arraylist para auxiliar a remoção do inimigo
-
-            GameObject lixo = (GameObject)aux[nearestEnemy[enemy]];
-
-            aux.RemoveAt(nearestEnemy[enemy]); // Remove o inimigo mais próximo
-
-            enemies.Remove("Enemy"+enemy); // Remove o Arraylist do dicionário de inimigos
-            enemies.Add("Enemy"+enemy, aux); // Adiciona o Arraylist com o mais próximo já removido
-
-            notaAtual = 0; // Volta a nota atual pra zero
-            Destroy(lixo); // Finalmente, destroy o gameObject
-            timer = 0;
-        } catch (ArgumentOutOfRangeException e)
-        {
-            //Debug.Log("forraaa22");
-        }
-        catch (KeyNotFoundException e)
-        {
-            //Debug.Log("Não há inimigos para essa nota no raio");
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision) // Aqui adicionamos novos inimigos ao dicionário, assim que entram no círculo maior
-    { // COLOCAR AQUI AS PARADAS DE COLISÂO
-    	//Debug.Log("colisão!"); // DEBUG
-        for(int i = 1; i < 3; i++)
+        for (int i = 1; i < 3; i++)
         {
             try
             { // Tenta:
-                ArrayList aux = enemies[collision.gameObject.tag]; // Pegar a lista de inimigos com a tag do inimigo que entrou no círculo
+                ArrayList aux = enemies["Enemy"+i]; // Pegar a lista de inimigos com a tag do inimigo que entrou no círcul
 
-                aux.Add(collision.gameObject); // Adiciona à lista o novo inimigo que chegou
-                enemies.Remove(collision.gameObject.tag); // Remove do dicionário a lista antiga
-                enemies.Add(collision.gameObject.tag, aux); // Adiciona ao dicionário a lista atualizada, com o novo inimigo
-
-                nearestEnemy[i-1] = 0; // O inimigo mais próximo é o primeiro, por padrão
+                nearestEnemy[i - 1] = 0; // O inimigo mais próximo é o primeiro, por padrão
 
                 for (int j = 0; j < aux.Count; j++)
                 { // Percorre a lista de inimigos, procurando o mais próximo do centro
                     GameObject atual = (GameObject)aux[j]; // O inimigo atual
-                    GameObject nearest = (GameObject)aux[nearestEnemy[i-1]];
+                    GameObject nearest = (GameObject)aux[nearestEnemy[i - 1]];
 
                     // Distância do inimigo atual ao centro (*** CHECAR SE ESTÁ CORRETO ***)
                     float distancia1 = Mathf.Sqrt(Mathf.Pow(atual.GetComponent<Transform>().position.x, 2) + Mathf.Pow(atual.GetComponent<Transform>().position.y, 2));
@@ -93,24 +61,93 @@ public class EnemiesOnRadius : MonoBehaviour
 
                     if (distancia1 < distancia2)
                     { // Se encontrou um novo inimigo mais próximo, atualiza
-                        nearestEnemy[i-1] = i;
+                        nearestEnemy[i - 1] = j;
                     }
                 }
 
-            }
-            catch (KeyNotFoundException e)
-            { // Chegamos aqui quando ainda não há no dicionário inimigos com a tag procurada
-                //Debug.Log("aaaa"); // DEBUG
-                ArrayList aux = new ArrayList(); // Criamos um Arraylist vazio
-                aux.Add(collision.gameObject); // Adicionamos o inimigo
-                enemies.Add(collision.gameObject.tag, aux); // Adicionamos o Arraylist ao dicionário
-                //Debug.Log("Adicionando ao dic Enemy: " + collision.gameObject.tag);
             }
             catch (ArgumentOutOfRangeException e)
             {
                 //Debug.Log("foraa");
             }
+            catch (ArgumentException)
+            {
+                Debug.Log("Argument");
+            }
         }
+    }
+
+    public void remove(int enemy) // Remove o inimigo mais próximo do centro do tipo n
+    {
+        Debug.Log("Remover Enemy" + enemy);
+        try
+        {
+            ArrayList aux = enemies["Enemy"+enemy]; // Um Arraylist para auxiliar a remoção do inimigo
+
+            GameObject lixo = (GameObject)aux[nearestEnemy[enemy-1]];
+
+            aux.RemoveAt(nearestEnemy[enemy-1]); // Remove o inimigo mais próximo
+
+            enemies.Remove("Enemy"+enemy); // Remove o Arraylist do dicionário de inimigos
+            enemies.Add("Enemy"+enemy, aux); // Adiciona o Arraylist com o mais próximo já removido
+
+            notaAtual = 0; // Volta a nota atual pra zero
+            Destroy(lixo); // Finalmente, destroy o gameObject
+            timer = 0;
+            calculaMaisProximo();
+        } catch (ArgumentOutOfRangeException e)
+        {
+            //Debug.Log("forraaa22");
+        }
+        catch (KeyNotFoundException e)
+        {
+            //Debug.Log("Não há inimigos para essa nota no raio");
+        }
+        catch (ArgumentException)
+        {
+            Debug.Log("Argument");
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) // Aqui adicionamos novos inimigos ao dicionário, assim que entram no círculo maior
+    { // COLOCAR AQUI AS PARADAS DE COLISÂO
+          //Debug.Log("colisão!"); // DEBUG
+            if (!collision.gameObject.tag.Contains("Enemy"))
+            {
+                return;
+            }
+            try
+            { // Tenta:
+                ArrayList aux = enemies[collision.gameObject.tag]; // Pegar a lista de inimigos com a tag do inimigo que entrou no círculo
+
+                aux.Add(collision.gameObject); // Adiciona à lista o novo inimigo que chegou
+                enemies.Remove(collision.gameObject.tag); // Remove do dicionário a lista antiga
+                enemies.Add(collision.gameObject.tag, aux); // Adiciona ao dicionário a lista atualizada, com o novo inimigo
+
+                calculaMaisProximo();
+
+            }
+            catch (KeyNotFoundException e)
+            { // Chegamos aqui quando ainda não há no dicionário inimigos com a tag procurada
+              //Debug.Log("aaaa"); // DEBUG
+                Debug.Log("Adicionando ao dic Enemy: " + collision.gameObject.tag);
+                ArrayList aux = new ArrayList(); // Criamos um Arraylist vazio
+                aux.Add(collision.gameObject); // Adicionamos o inimigo
+                enemies.Add(collision.gameObject.tag, aux); // Adicionamos o Arraylist ao dicionário
+                return;
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                //Debug.Log("foraa");
+            }
+            catch(MissingReferenceException e)
+            {
+                Debug.Log("Erro no atual");
+            }
+            catch (ArgumentException)
+            {
+                Debug.Log("Argument");
+            }
     }
 
     void preencheMelodia(string tecla) // Tenta preencher a melodia com uma determinada nota
@@ -187,6 +224,9 @@ public class EnemiesOnRadius : MonoBehaviour
         {
             preencheMelodia("down"); // Tenta preencher a melodia com X
         }
+        if(timer > 0)
+        {
             timer -= Time.deltaTime; // Decrementa o contador de tempo
+        }
     }
 }
