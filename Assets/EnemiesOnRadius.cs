@@ -85,15 +85,14 @@ public class EnemiesOnRadius : MonoBehaviour
         Debug.Log("Remover Enemy" + enemy);
         try
         {
-                                                Debug.Log("sdjkknf");
-                        score++;
-                        textScore.text = "Score:" + score;
             ArrayList aux = enemies["Enemy"+enemy]; // Um Arraylist para auxiliar a remoção do inimigo
 
             GameObject lixo = (GameObject)aux[nearestEnemy[enemy-1]];
 
             aux.RemoveAt(nearestEnemy[enemy-1]); // Remove o inimigo mais próximo
-
+            Debug.Log("Score ++");
+            score++;
+            textScore.text = "Score:" + score;
             enemies.Remove("Enemy"+enemy); // Remove o Arraylist do dicionário de inimigos
             enemies.Add("Enemy"+enemy, aux); // Adiciona o Arraylist com o mais próximo já removido
 
