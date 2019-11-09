@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemiesOnRadius : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class EnemiesOnRadius : MonoBehaviour
     private string[][] melodia; // Array de notas = uma melodia
     public bool[][] pressed; // Array das notas pressionadas
     public int notaAtual; // Indicador da nota atual
+    public Text textScore;
+    public int  score = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -82,6 +85,9 @@ public class EnemiesOnRadius : MonoBehaviour
         Debug.Log("Remover Enemy" + enemy);
         try
         {
+                                                Debug.Log("sdjkknf");
+                        score++;
+                        textScore.text = "Score:" + score;
             ArrayList aux = enemies["Enemy"+enemy]; // Um Arraylist para auxiliar a remoção do inimigo
 
             GameObject lixo = (GameObject)aux[nearestEnemy[enemy-1]];
@@ -94,6 +100,7 @@ public class EnemiesOnRadius : MonoBehaviour
             notaAtual = 0; // Volta a nota atual pra zero
             Destroy(lixo); // Finalmente, destroy o gameObject
             timer = 0;
+
             calculaMaisProximo();
         } catch (ArgumentOutOfRangeException e)
         {
