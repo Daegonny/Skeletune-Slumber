@@ -24,7 +24,7 @@ public class EnemiesOnRadius : MonoBehaviour
         nearestEnemy = new int[4];
         pressed = new bool[4][];
         melodia = new string[4][];
-        melodia[0] = new string[4] { "up", "up", "left", "up"}; // Uma melodia qualquer para o inimigo
+        melodia[0] = new string[4] { "up", "right", "down", "left"}; // Uma melodia qualquer para o inimigo
         melodia[1] = new string[4] { "down", "left", "left", "down" };
         for (int i = 0; i < 4; i++)
         {

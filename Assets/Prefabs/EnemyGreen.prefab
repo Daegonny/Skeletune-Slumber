@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 5767494661009355947}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -59.5, y: 7.7, z: 0}
-  m_LocalScale: {x: 30, y: 30, z: 1}
+  m_LocalScale: {x: 30, y: 30, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+  anim: {fileID: 5767494661009355940}
 --- !u!50 &5767494661009355944
 Rigidbody2D:
   serializedVersion: 4
