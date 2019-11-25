@@ -441,7 +441,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1f0b491a3b8a204c8f114401d463e49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 5767494661009355947, guid: 38ed996c5c92ff14797b66e7bcf19026, type: 3}
+  enemyGreen: {fileID: 5767494661009355947, guid: 38ed996c5c92ff14797b66e7bcf19026,
+    type: 3}
+  enemyPurple: {fileID: 5767494661009355947, guid: a84e213d4d52d8d4ab2b893bd7b212aa,
+    type: 3}
+  enemyOrange: {fileID: 5767494661009355947, guid: cbd4ed1d00b217d46ba345a2af83aba0,
+    type: 3}
+  enemyRed: {fileID: 5767494661009355947, guid: 30c5c0c85036faf4dbb3e18f1a62af92,
+    type: 3}
   spawnRate: 5
 --- !u!4 &335818919
 Transform:

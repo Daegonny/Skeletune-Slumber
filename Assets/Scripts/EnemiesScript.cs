@@ -42,7 +42,7 @@ public class EnemiesScript : MonoBehaviour
 
     void Update(){
         checkStatus();
-        anim.SetInteger("EnemyGreenState", state);
+        anim.SetInteger("EnemyState", state);
     }
 
     private void MoveEnemy()

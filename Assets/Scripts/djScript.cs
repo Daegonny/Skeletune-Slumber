@@ -19,7 +19,7 @@ public class djScript : MonoBehaviour{
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag != "Enemy1")
+        if(!collision.gameObject.tag.StartsWith("Enemy"))
         {
             return;
         }
