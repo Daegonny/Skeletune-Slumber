@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawnerScript : MonoBehaviour
 {
-    public GameObject enemy;//, enemy2;
+    public GameObject enemyGreen, enemyPurple, enemyOrange, enemyRed ;//, enemy2;
     float randX;
     float randY;
     Vector2 whereToSpawn;
@@ -14,6 +14,22 @@ public class EnemySpawnerScript : MonoBehaviour
     void Start()
     {
         
+    }
+
+    private GameObject determineEnemyType(){
+        float r = Random.Range(0.0f, 1.0f);
+        if (r <= 0.25){
+            return enemyGreen;
+        }
+        else if(r <= 0.50){
+            return enemyPurple;
+        }
+        else if(r <= 0.75){
+            return enemyOrange;
+        }
+        else{
+            return enemyRed;
+        }
     }
 
     // Update is called once per frame
@@ -30,7 +46,7 @@ public class EnemySpawnerScript : MonoBehaviour
             }
             //TODO: DONT LET ENEMY SPAWN INSID RADIUS
             whereToSpawn = new Vector2(randX, randY);
-            Instantiate(enemy, whereToSpawn, Quaternion.identity);
+            Instantiate(determineEnemyType(), whereToSpawn, Quaternion.identity);
             //whereToSpawn = new Vector2(randX, randY);
             //Instantiate(enemy2, whereToSpawn, Quaternion.identity);
         }

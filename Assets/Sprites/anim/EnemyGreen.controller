@@ -35,7 +35,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: EnemyGreenState
+    m_ConditionEvent: EnemyState
     m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4045463967243216470}
@@ -60,7 +60,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: EnemyGreenState
+    m_ConditionEvent: EnemyState
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6175029763693226681}
@@ -85,7 +85,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: EnemyGreenState
+    m_ConditionEvent: EnemyState
     m_EventTreshold: 2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 4987299919553311542}
@@ -136,7 +136,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: EnemyGreenState
+    m_ConditionEvent: EnemyState
     m_EventTreshold: 3
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8818604564962636699}
@@ -161,7 +161,7 @@ AnimatorController:
   m_Name: EnemyGreen
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: EnemyGreenState
+  - m_Name: EnemyState
     m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: 0

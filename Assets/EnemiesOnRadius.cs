@@ -27,8 +27,10 @@ public class EnemiesOnRadius : MonoBehaviour
         nearestEnemy = new int[4];
         pressed = new bool[4][];
         melodia = new string[4][];
-        melodia[0] = new string[4] { "up", "right", "down", "left"}; // Uma melodia qualquer para o inimigo
-        melodia[1] = new string[4] { "down", "left", "left", "down" };
+        melodia[0] = new string[4] { "right", "right", "right", "right"}; // Uma melodia qualquer para o inimigo
+        melodia[1] = new string[4] { "left", "left", "left", "left" };
+        melodia[2] = new string[4] { "up", "up", "up", "up" };
+        melodia[3] = new string[4] { "down", "down", "down", "down" };
         for (int i = 0; i < 4; i++)
         {
             pressed[i] = new bool[4]; // Todas as notas começam sem terem sido pressionadas
@@ -40,6 +42,8 @@ public class EnemiesOnRadius : MonoBehaviour
         }
         melodias.Add("Enemy1", melodia[0]); // Adiciona a melodia ao dicionário de melodias
         melodias.Add("Enemy2", melodia[1]);
+        melodias.Add("Enemy3", melodia[2]);
+        melodias.Add("Enemy4", melodia[3]);
     }
 
     void calculaMaisProximo()
@@ -158,7 +162,7 @@ public class EnemiesOnRadius : MonoBehaviour
 
     void preencheMelodia(string tecla) // Tenta preencher a melodia com uma determinada nota
     {
-        for (int i = 1; i < 3; i++)
+        for (int i = 1; i <= 4; i++)
         {
             string[] atual = melodias["Enemy" + i];
             //Debug.Log("Melodia Enemy" + i);
@@ -202,7 +206,7 @@ public class EnemiesOnRadius : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if((Input.GetKey("left") || Input.GetKey("right") || Input.GetKey("up") || Input.GetKey("down")) && (timer > 6 || timer <= 0)) // Se ouve input do jogador e o timer está fora de uso
+        if((Input.GetKeyUp("left") || Input.GetKeyUp("right") || Input.GetKeyUp("up") || Input.GetKeyUp("down")) && (timer > 6 || timer <= 0)) // Se houve input do jogador e o timer está fora de uso
         {
             timer = 6; // O timer volta pra 6s
             notaAtual = 0; // A nota atual volta pra zero
@@ -214,19 +218,19 @@ public class EnemiesOnRadius : MonoBehaviour
                 }
             }
         }
-        if (Input.GetKey("left")) // Se o jogador apertou Z
+        if (Input.GetKeyUp("left")) // Se o jogador apertou Z
         {
             preencheMelodia("left"); // Tenta preencher a melodia com Z
         }
-        else if (Input.GetKey("right")) // Se o jogador apertou X
+        else if (Input.GetKeyUp("right")) // Se o jogador apertou X
         {
             preencheMelodia("right"); // Tenta preencher a melodia com X
         }
-        else if (Input.GetKey("up")) // Se o jogador apertou X
+        else if (Input.GetKeyUp("up")) // Se o jogador apertou X
         {
             preencheMelodia("up"); // Tenta preencher a melodia com X
         }
-        else if (Input.GetKey("down")) // Se o jogador apertou X
+        else if (Input.GetKeyUp("down")) // Se o jogador apertou X
         {
             preencheMelodia("down"); // Tenta preencher a melodia com X
         }
