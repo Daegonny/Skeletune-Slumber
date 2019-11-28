@@ -7,6 +7,10 @@ public class EnemySpawnerScript : MonoBehaviour
     public GameObject enemyGreen, enemyPurple, enemyOrange, enemyRed ;//, enemy2;
     float randX;
     float randY;
+    public float boundLeft;
+    public float boundRight;
+    public float boundTop;
+    public float boundBottom;
     Vector2 whereToSpawn;
     public float spawnRate;
     float nextSpawn = 0.0f;
@@ -37,18 +41,17 @@ public class EnemySpawnerScript : MonoBehaviour
         if(Time.time > nextSpawn)
         {
             nextSpawn = Time.time + spawnRate;
-            randX = Random.Range(-66.6f, 66.65f);
-            randY = Random.Range(-66.6f, 66.6f);
-            while (randX >= -30 && randX <= 30 && randY >= -30 && randY <= 30)
-            {
-                randX = Random.Range(-66.6f, 66.65f);
-                randY = Random.Range(-66.6f, 66.6f);
-            }
+            randX = Random.Range(boundLeft, boundRight);
+            randY = Random.Range(boundBottom, boundTop);
+            
+            //while (randX >= -30 && randX <= 30 && randY >= -30 && randY <= 30)
+            //{
+            //    randX = Random.Range(-66.6f, 66.65f);
+            //    randY = Random.Range(-66.6f, 66.6f);
+            //}
             //TODO: DONT LET ENEMY SPAWN INSID RADIUS
             whereToSpawn = new Vector2(randX, randY);
-            Instantiate(determineEnemyType(), whereToSpawn, Quaternion.identity);
-            //whereToSpawn = new Vector2(randX, randY);
-            //Instantiate(enemy2, whereToSpawn, Quaternion.identity);
+            Instantiate(determineEnemyType(), whereToSpawn, Quaternion.identity);            
         }
     }
 }
