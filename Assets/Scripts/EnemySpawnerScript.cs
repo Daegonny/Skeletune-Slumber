@@ -34,10 +34,10 @@ public class EnemySpawnerScript : MonoBehaviour
             return enemyPurple;
         }
         else if(r <= 0.75){
-            return enemyRed;
+            return enemyOrange;
         }
         else{
-            return enemyOrange;
+            return enemyRed;
         }
     }
 
