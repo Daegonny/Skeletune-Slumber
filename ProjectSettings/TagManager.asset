@@ -9,6 +9,7 @@ TagManager:
   - Enemy1
   - Enemy3
   - Enemy4
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX

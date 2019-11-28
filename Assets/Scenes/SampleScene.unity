@@ -562,11 +562,12 @@ MonoBehaviour:
     type: 3}
   enemyRed: {fileID: 5767494661009355947, guid: 30c5c0c85036faf4dbb3e18f1a62af92,
     type: 3}
-  boundLeft: -66
-  boundRight: 66
-  boundTop: 66
-  boundBottom: -66
+  boundLeft: -75
+  boundRight: 75
+  boundTop: 75
+  boundBottom: -75
   spawnRate: 5
+  spawnPoints: []
 --- !u!4 &335818919
 Transform:
   m_ObjectHideFlags: 0
