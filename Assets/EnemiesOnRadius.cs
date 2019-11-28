@@ -27,10 +27,10 @@ public class EnemiesOnRadius : MonoBehaviour
         nearestEnemy = new int[4];
         pressed = new bool[4][];
         melodia = new string[4][];
-        melodia[0] = new string[4] { "right", "right", "right", "right"}; // Uma melodia qualquer para o inimigo
-        melodia[1] = new string[4] { "left", "left", "left", "left" };
-        melodia[2] = new string[4] { "up", "up", "up", "up" };
-        melodia[3] = new string[4] { "down", "down", "down", "down" };
+        melodia[0] = new string[4] { "left", "down", "up", "left"}; // Uma melodia qualquer para o inimigo
+        melodia[1] = new string[4] { "up", "left", "right", "up" };
+        melodia[2] = new string[4] { "right", "up", "right", "down" };
+        melodia[3] = new string[4] { "down", "down", "left", "right" };
         for (int i = 0; i < 4; i++)
         {
             pressed[i] = new bool[4]; // Todas as notas começam sem terem sido pressionadas
@@ -172,21 +172,21 @@ public class EnemiesOnRadius : MonoBehaviour
                 {
                     pressed[i - 1][notaAtual] = true; // Confirma a nota e passa para a próxima
                     notaAtual++;
-                if (notaAtual == 4) notaAtual = 0;
-                try
-                {
-                    if (melodiaPreenchida(i - 1))
+                    if (notaAtual == 4) notaAtual = 0;
+                    try
                     {
-                        remove(i);
+                        if (melodiaPreenchida(i - 1))
+                        {
+                            remove(i);
+                        }
                     }
-                }
-                catch (IndexOutOfRangeException e)
-                {
-                    /*Debug.Log("Exception");
-                    Debug.Log("pressed" + (i - 1) + "," + notaAtual);
-                    Debug.Log("atual" + notaAtual);*/
-                }
-                return;
+                    catch (IndexOutOfRangeException e)
+                    {
+                        /*Debug.Log("Exception");
+                        Debug.Log("pressed" + (i - 1) + "," + notaAtual);
+                        Debug.Log("atual" + notaAtual);*/
+                    }
+                    return;
                 }
         }
     }
