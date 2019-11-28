@@ -224,10 +224,10 @@ MonoBehaviour:
     type: 3}
   enemyRed: {fileID: 5767494661009355947, guid: 30c5c0c85036faf4dbb3e18f1a62af92,
     type: 3}
-  boundLeft: -30
-  boundRight: 30
-  boundTop: 30
-  boundBottom: 30
+  boundLeft: -66
+  boundRight: 66
+  boundTop: 66
+  boundBottom: -66
   spawnRate: 5
 --- !u!4 &335818919
 Transform:
