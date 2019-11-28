@@ -131,6 +131,7 @@ public class EnemiesOnRadius : MonoBehaviour
                 ArrayList aux = enemies[collision.gameObject.tag]; // Pegar a lista de inimigos com a tag do inimigo que entrou no círculo
 
                 aux.Add(collision.gameObject); // Adiciona à lista o novo inimigo que chegou
+                // lenEnemy = aux.Count; 
                 enemies.Remove(collision.gameObject.tag); // Remove do dicionário a lista antiga
                 enemies.Add(collision.gameObject.tag, aux); // Adiciona ao dicionário a lista atualizada, com o novo inimigo
 
