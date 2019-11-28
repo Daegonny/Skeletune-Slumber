@@ -25,11 +25,28 @@ public class EnemiesScript : MonoBehaviour
         switch(collision.gameObject.name)
         {
             case "SecondRadius":
-                FindObjectOfType<AudioManager>().Play("GreenColision1");
+                playSound(gameObject);
                 break;
             case "FirstRadius":
                 break;
 
+        }
+    }
+
+    private void playSound(GameObject go) {
+        switch (go.tag) {
+            case "Enemy1":
+                FindObjectOfType<AudioManager>().Play("GreenColision1");
+                break;
+            case "Enemy2":
+                FindObjectOfType<AudioManager>().Play("PurpleColision1");
+                break;
+            case "Enemy3":
+                FindObjectOfType<AudioManager>().Play("OrangeColision1");
+                break;
+            case "Enemy4":
+                FindObjectOfType<AudioManager>().Play("RedColision1");
+                break;
         }
     }
 

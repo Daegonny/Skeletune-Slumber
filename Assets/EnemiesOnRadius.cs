@@ -162,6 +162,7 @@ public class EnemiesOnRadius : MonoBehaviour
 
     void preencheMelodia(string tecla) // Tenta preencher a melodia com uma determinada nota
     {
+        playSoundNote(tecla);
         for (int i = 1; i <= 4; i++)
         {
             string[] atual = melodias["Enemy" + i];
@@ -237,6 +238,26 @@ public class EnemiesOnRadius : MonoBehaviour
         if(timer > 0)
         {
             timer -= Time.deltaTime; // Decrementa o contador de tempo
+        }
+    }
+
+    private void playSoundNote(string key) {
+        switch (key)
+        {
+            case "left":
+                FindObjectOfType<AudioManager>().Play("Note1");
+                break;
+            case "right":
+                FindObjectOfType<AudioManager>().Play("Note2");
+                break;
+            case "up":
+                FindObjectOfType<AudioManager>().Play("Note3");
+                break;
+            case "down":
+                FindObjectOfType<AudioManager>().Play("Note4");
+                break;
+            default:
+                break;
         }
     }
 }
