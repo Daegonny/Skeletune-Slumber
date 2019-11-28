@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6753556190294476611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6753556190294476609}
+  - component: {fileID: 6753556190294476610}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6753556190294476609
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6753556190294476611}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 56.39625, y: 21.99121, z: 76.19692}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6753556190294476610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6753556190294476611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f6d36950a680dc42996ac2899eb03a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: GreenColision1
+    clip: {fileID: 8300000, guid: ce419d0c3829d492fb7c4842b30644aa, type: 3}
+    volume: 0.6
+    pitch: 1
+    source: {fileID: 0}
+  - name: PurpleColision1
+    clip: {fileID: 8300000, guid: 7b6e6d50deb3b41e189f27d4b9ccc361, type: 3}
+    volume: 0.6
+    pitch: 1
+    source: {fileID: 0}
+  - name: OrangeColision1
+    clip: {fileID: 8300000, guid: 16f3f7e97f30c4d0ca84fe1e2d27e241, type: 3}
+    volume: 0.6
+    pitch: 1
+    source: {fileID: 0}
+  - name: RedColision1
+    clip: {fileID: 8300000, guid: f6c483899f5da45a3a40239e0b9375a6, type: 3}
+    volume: 0.6
+    pitch: 1
+    source: {fileID: 0}
+  - name: Theme
+    clip: {fileID: 8300000, guid: 2d295b9539286124d80823c30740f90a, type: 3}
+    volume: 0.7
+    pitch: 1
+    source: {fileID: 0}
+  - name: Note1
+    clip: {fileID: 8300000, guid: 44626b536b9e1764dab9fccc6f0dcf92, type: 3}
+    volume: 0.65
+    pitch: 1
+    source: {fileID: 0}
+  - name: Note2
+    clip: {fileID: 8300000, guid: cd9b9c3c26bc3f049baf5bb2a4d5d1a0, type: 3}
+    volume: 0.65
+    pitch: 1
+    source: {fileID: 0}
+  - name: Note3
+    clip: {fileID: 8300000, guid: e9f59909c9ee90b41b21e766085058d7, type: 3}
+    volume: 0.65
+    pitch: 1
+    source: {fileID: 0}
+  - name: Note4
+    clip: {fileID: 8300000, guid: 77f6f9f6c1a1b874c9f73b0367cc3996, type: 3}
+    volume: 0.65
+    pitch: 1
+    source: {fileID: 0}
