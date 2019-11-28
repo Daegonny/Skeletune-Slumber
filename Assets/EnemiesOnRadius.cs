@@ -33,6 +33,11 @@ public class EnemiesOnRadius : MonoBehaviour
         melodia[2] = new string[4] { "right", "up", "right", "down" };
         melodia[3] = new string[4] { "down", "down", "left", "right" };
         
+        enemies.Add("Enemy1", new ArrayList());
+        enemies.Add("Enemy2", new ArrayList());
+        enemies.Add("Enemy3", new ArrayList());
+        enemies.Add("Enemy4", new ArrayList());
+
         notaAtual = 0; // Nota atual é a primeira
         melodias.Add("Enemy1", melodia[0]); // Adiciona a melodia ao dicionário de melodias
         melodias.Add("Enemy2", melodia[1]);
@@ -42,7 +47,7 @@ public class EnemiesOnRadius : MonoBehaviour
 
     void calculaMaisProximo()
     {
-        for (int i = 1; i < 3; i++)
+        for (int i = 1; i <= 4; i++)
         {
             try
             { // Tenta:
@@ -56,9 +61,9 @@ public class EnemiesOnRadius : MonoBehaviour
                     GameObject nearest = (GameObject)aux[nearestEnemy[i - 1]];
 
                     // Distância do inimigo atual ao centro (*** CHECAR SE ESTÁ CORRETO ***)
-                    float distancia1 = Mathf.Sqrt(Mathf.Pow(atual.GetComponent<Transform>().position.x, 2) + Mathf.Pow(atual.GetComponent<Transform>().position.y, 2));
+                    float distancia1 = Mathf.Sqrt(Mathf.Pow(atual.GetComponent<Transform>().position.x - transform.position.x, 2) + Mathf.Pow(atual.GetComponent<Transform>().position.y - transform.position.y, 2));
                     // Distância do inimigo "mais próximo" ao centro (*** CHECAR SE ESTÁ CORRETO ***)
-                    float distancia2 = Mathf.Sqrt(Mathf.Pow(nearest.GetComponent<Transform>().position.x, 2) + Mathf.Pow(nearest.GetComponent<Transform>().position.y, 2));
+                    float distancia2 = Mathf.Sqrt(Mathf.Pow(nearest.GetComponent<Transform>().position.x - transform.position.x, 2) + Mathf.Pow(nearest.GetComponent<Transform>().position.y - transform.position.y, 2));
 
                     if (distancia1 < distancia2)
                     { // Se encontrou um novo inimigo mais próximo, atualiza
@@ -87,11 +92,10 @@ public class EnemiesOnRadius : MonoBehaviour
             GameObject lixo = (GameObject)aux[nearestEnemy[enemy-1]];
 
             aux.RemoveAt(nearestEnemy[enemy-1]); // Remove o inimigo mais próximo
-            Debug.Log("Score ++");
             score++;
             textScore.text = "Score:" + score;
-            enemies.Remove("Enemy"+enemy); // Remove o Arraylist do dicionário de inimigos
-            enemies.Add("Enemy"+enemy, aux); // Adiciona o Arraylist com o mais próximo já removido
+            //enemies.Remove("Enemy"+enemy); // Remove o Arraylist do dicionário de inimigos
+            //enemies.Add("Enemy"+enemy, aux); // Adiciona o Arraylist com o mais próximo já removido
 
             notaAtual = 0; // Volta a nota atual pra zero
             Destroy(lixo); // Finalmente, destroy o gameObject
@@ -124,8 +128,8 @@ public class EnemiesOnRadius : MonoBehaviour
 
                 aux.Add(collision.gameObject); // Adiciona à lista o novo inimigo que chegou
                 // lenEnemy = aux.Count; 
-                enemies.Remove(collision.gameObject.tag); // Remove do dicionário a lista antiga
-                enemies.Add(collision.gameObject.tag, aux); // Adiciona ao dicionário a lista atualizada, com o novo inimigo
+                //enemies.Remove(collision.gameObject.tag); // Remove do dicionário a lista antiga
+                //enemies.Add(collision.gameObject.tag, aux); // Adiciona ao dicionário a lista atualizada, com o novo inimigo
 
                 calculaMaisProximo();
 
@@ -133,7 +137,7 @@ public class EnemiesOnRadius : MonoBehaviour
             catch (KeyNotFoundException e)
             { // Chegamos aqui quando ainda não há no dicionário inimigos com a tag procurada
               //Debug.Log("aaaa"); // DEBUG
-                Debug.Log("Adicionando ao dic Enemy: " + collision.gameObject.tag);
+                //Debug.Log("Adicionando ao dic Enemy: " + collision.gameObject.tag);
                 ArrayList aux = new ArrayList(); // Criamos um Arraylist vazio
                 aux.Add(collision.gameObject); // Adicionamos o inimigo
                 enemies.Add(collision.gameObject.tag, aux); // Adicionamos o Arraylist ao dicionário
