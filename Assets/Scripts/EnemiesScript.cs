@@ -25,11 +25,9 @@ public class EnemiesScript : MonoBehaviour
         switch(collision.gameObject.name)
         {
             case "SecondRadius":
-                //moveSpeed = 50f;
-                //gameObject.GetComponent<TimerHandler>().enabled = true;
+                FindObjectOfType<AudioManager>().Play("GreenColision1");
                 break;
             case "FirstRadius":
-                //moveSpeed = 0f;
                 break;
 
         }
@@ -55,7 +53,7 @@ public class EnemiesScript : MonoBehaviour
     }
 
     void checkStatus(){
-        Debug.Log(velocity.x+" - "+velocity.y);
+        //Debug.Log(velocity.x+" - "+velocity.y);
         if (Mathf.Abs(velocity.x) >= Mathf.Abs(velocity.y)){
             if (velocity.x > 0){
                 state = 0;
