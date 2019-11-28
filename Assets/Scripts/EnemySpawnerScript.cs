@@ -44,11 +44,11 @@ public class EnemySpawnerScript : MonoBehaviour
             randX = Random.Range(boundLeft, boundRight);
             randY = Random.Range(boundBottom, boundTop);
             
-            //while (randX >= -30 && randX <= 30 && randY >= -30 && randY <= 30)
-            //{
-            //    randX = Random.Range(-66.6f, 66.65f);
-            //    randY = Random.Range(-66.6f, 66.6f);
-            //}
+            while (randX >= -30 && randX <= 30 && randY >= -30 && randY <= 30)
+            {
+               randX = Random.Range(boundLeft, boundRight);
+                randY = Random.Range(boundBottom, boundTop);
+            }
             //TODO: DONT LET ENEMY SPAWN INSID RADIUS
             whereToSpawn = new Vector2(randX, randY);
             Instantiate(determineEnemyType(), whereToSpawn, Quaternion.identity);            
