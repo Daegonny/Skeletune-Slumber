@@ -16,17 +16,17 @@ public class AudioManager : MonoBehaviour {
 
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
-
-            if (s.name == "Theme") s.source.loop = true;
         }
     }
 
     void Start () {
-        Play("Theme");
+        Play("Theme", true);
     }
 
-    public void Play (string name) {
+    public void Play (string name, bool loop = false) {
         Sound s =  Array.Find(sounds, sound => sound.name == name);
+        if(loop) s.source.loop = true;
+        
         s.source.Play();
     }
 }
