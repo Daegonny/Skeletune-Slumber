@@ -93,7 +93,7 @@ public class EnemiesOnRadius : MonoBehaviour
 
             aux.RemoveAt(nearestEnemy[enemy-1]); // Remove o inimigo mais próximo
             score++;
-            textScore.text = "Score:" + score;
+            textScore.text = score.ToString();
             //enemies.Remove("Enemy"+enemy); // Remove o Arraylist do dicionário de inimigos
             //enemies.Add("Enemy"+enemy, aux); // Adiciona o Arraylist com o mais próximo já removido
 

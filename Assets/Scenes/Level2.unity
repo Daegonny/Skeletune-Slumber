@@ -1390,6 +1390,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
+    - target: {fileID: 8453446739582950169, guid: e8b4ac8fb7def07488e5d5c43fb768ac,
+        type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1256415992203655164, guid: e8b4ac8fb7def07488e5d5c43fb768ac,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1455,16 +1460,11 @@ PrefabInstance:
       propertyPath: secondRadius
       value: 
       objectReference: {fileID: 1704639745}
-    - target: {fileID: 8453446739582950169, guid: e8b4ac8fb7def07488e5d5c43fb768ac,
-        type: 3}
-      propertyPath: m_Text
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8b4ac8fb7def07488e5d5c43fb768ac, type: 3}
 --- !u!114 &1160482114 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1256415991534195479, guid: e8b4ac8fb7def07488e5d5c43fb768ac,
+  m_CorrespondingSourceObject: {fileID: 5107000825286965592, guid: e8b4ac8fb7def07488e5d5c43fb768ac,
     type: 3}
   m_PrefabInstance: {fileID: 1160482113}
   m_PrefabAsset: {fileID: 0}
@@ -1586,18 +1586,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1453552086 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1256415993356403746, guid: e8b4ac8fb7def07488e5d5c43fb768ac,
-    type: 3}
-  m_PrefabInstance: {fileID: 1160482113}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1485051544 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8220325940470504984, guid: a459887067a76de47b941517761561ad,
@@ -2326,8 +2314,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a49a056b1ef51c4ca8961be5b9a64ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiText: {fileID: 1453552086}
-  mainTimer: 60
+  uiText: {fileID: 0}
+  mainTimer: 180
 --- !u!4 &1741683883
 Transform:
   m_ObjectHideFlags: 0
