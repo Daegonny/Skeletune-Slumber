@@ -25,19 +25,19 @@ public class TimeBarScript : MonoBehaviour
     void Update()
     {
         //Debug.Log(script.timer);
-        if (script.timer > 5){
+        if (script.timer > 2.5){
             sr.sprite = six;
         }
-        else if (script.timer > 4){
+        else if (script.timer > 2){
             sr.sprite = five;
         }
-        else if (script.timer > 3){
+        else if (script.timer > 1.5){
             sr.sprite = four;
         }
-        else if (script.timer > 2){
+        else if (script.timer > 1){
             sr.sprite = three;
         }
-        else if (script.timer > 1){
+        else if (script.timer > 0.5){
             sr.sprite = two;
         }
         else if (script.timer > 0){

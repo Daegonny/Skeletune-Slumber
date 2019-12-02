@@ -25,7 +25,9 @@ public class CountDownTimerScript : MonoBehaviour
             uiText.text = timer.ToString("F");
         } else {
             uiText.text = "0.0";
-            SceneManager.LoadScene(2);
+            //SceneManager.LoadScene(2);
+            int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+            UnityEngine.SceneManagement.SceneManager.LoadScene(nextSceneIndex);
         }
     }
 }

@@ -25,19 +25,41 @@ public class EnemiesScript : MonoBehaviour
         switch(collision.gameObject.name)
         {
             case "SecondRadius":
-                //moveSpeed = 50f;
-                //gameObject.GetComponent<TimerHandler>().enabled = true;
+                playSound(gameObject);
                 break;
             case "FirstRadius":
-                //moveSpeed = 0f;
                 break;
 
+        }
+    }
+
+    private void playSound(GameObject go) {
+        switch (go.tag) {
+            case "Enemy1":
+                FindObjectOfType<AudioManager>().Play("GreenColision1");
+                break;
+            case "Enemy2":
+                FindObjectOfType<AudioManager>().Play("PurpleColision1");
+                break;
+            case "Enemy3":
+                FindObjectOfType<AudioManager>().Play("OrangeColision1");
+                break;
+            case "Enemy4":
+                FindObjectOfType<AudioManager>().Play("RedColision1");
+                break;
         }
     }
 
     // Update is called once per frame
     void FixedUpdate() {
         MoveEnemy();
+        if(this.GetComponent<Transform>().position.x >= -66 &&
+            this.GetComponent<Transform>().position.x <= 66 &&
+            this.GetComponent<Transform>().position.y >=-66 &&
+            this.GetComponent<Transform>().position.y <= 66)
+        {
+            this.GetComponent<SpriteRenderer>().enabled = true;
+        }
     }
 
     void Update(){
@@ -55,7 +77,7 @@ public class EnemiesScript : MonoBehaviour
     }
 
     void checkStatus(){
-        Debug.Log(velocity.x+" - "+velocity.y);
+        //Debug.Log(velocity.x+" - "+velocity.y);
         if (Mathf.Abs(velocity.x) >= Mathf.Abs(velocity.y)){
             if (velocity.x > 0){
                 state = 0;

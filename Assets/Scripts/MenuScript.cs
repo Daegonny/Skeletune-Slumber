@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour
 {
@@ -16,7 +17,8 @@ public class MenuScript : MonoBehaviour
     }
 
     public void goesToGameScene() {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        UnityEngine.SceneManagement.SceneManager.LoadScene(nextSceneIndex);
         Debug.Log("dkjfnsdkjfn");
     }
 
@@ -26,5 +28,9 @@ public class MenuScript : MonoBehaviour
 
     public void goesToAboutScene() {
          Debug.Log("goesToTutorial");
+    }
+    public void exitGame()
+    {
+        Application.Quit();
     }
 }
