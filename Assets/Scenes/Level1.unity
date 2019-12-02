@@ -2389,6 +2389,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
+    - target: {fileID: 8453446739582950169, guid: e8b4ac8fb7def07488e5d5c43fb768ac,
+        type: 3}
+      propertyPath: m_Text
+      value: 60.0
+      objectReference: {fileID: 0}
     - target: {fileID: 1256415992203655164, guid: e8b4ac8fb7def07488e5d5c43fb768ac,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2464,11 +2469,6 @@ PrefabInstance:
       propertyPath: secondRadius
       value: 
       objectReference: {fileID: 1704639745}
-    - target: {fileID: 8453446739582950169, guid: e8b4ac8fb7def07488e5d5c43fb768ac,
-        type: 3}
-      propertyPath: m_Text
-      value: 60.0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8b4ac8fb7def07488e5d5c43fb768ac, type: 3}
 --- !u!114 &2111975272 stripped

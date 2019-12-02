@@ -53,6 +53,13 @@ public class EnemiesScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate() {
         MoveEnemy();
+        if(this.GetComponent<Transform>().position.x >= -66 &&
+            this.GetComponent<Transform>().position.x <= 66 &&
+            this.GetComponent<Transform>().position.y >=-66 &&
+            this.GetComponent<Transform>().position.y <= 66)
+        {
+            this.GetComponent<SpriteRenderer>().enabled = true;
+        }
     }
 
     void Update(){
