@@ -22,7 +22,7 @@ public class CountDownTimerScript : MonoBehaviour
     {
         if(timer >= 0.0f) {
             timer -= Time.deltaTime;
-            uiText.text = timer.ToString("F");
+            uiText.text = Mathf.RoundToInt(timer).ToString();
         } else {
             uiText.text = "0.0";
             //SceneManager.LoadScene(2);
