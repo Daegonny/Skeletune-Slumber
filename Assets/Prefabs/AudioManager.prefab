@@ -69,6 +69,16 @@ MonoBehaviour:
     volume: 0.7
     pitch: 1
     source: {fileID: 0}
+  - name: GettingHit
+    clip: {fileID: 8300000, guid: 4b94bb5a345eebc4384628e477c58cf8, type: 3}
+    volume: 0.7
+    pitch: 1
+    source: {fileID: 0}
+  - name: SkeletonDead
+    clip: {fileID: 8300000, guid: 7d277122f0e11c846b925558585fd97c, type: 3}
+    volume: 0.7
+    pitch: 1
+    source: {fileID: 0}
   - name: Note1
     clip: {fileID: 8300000, guid: 44626b536b9e1764dab9fccc6f0dcf92, type: 3}
     volume: 0.65

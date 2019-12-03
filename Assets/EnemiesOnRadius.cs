@@ -99,6 +99,7 @@ public class EnemiesOnRadius : MonoBehaviour
 
             notaAtual = 0; // Volta a nota atual pra zero
             Destroy(lixo); // Finalmente, destroy o gameObject
+            playSound("SkeletonDead");
 
             calculaMaisProximo();
         } catch (ArgumentOutOfRangeException e)
@@ -224,6 +225,10 @@ public class EnemiesOnRadius : MonoBehaviour
         if (timer == 0){
             notaAtual = 0;
         }
+    }
+
+    private void playSound(string sound) {
+        FindObjectOfType<AudioManager>().Play(sound);
     }
 
     private void playSoundNote(string key) {

@@ -25,9 +25,10 @@ public class djScript : MonoBehaviour{
         }
         Debug.Log("colisão com " + collision.gameObject.tag);
         lives--;
+        playSound("GettingHit");
         if(lives == 0)
         {
-            SceneManager.LoadScene("GameOver");
+            SceneManager.LoadSceneAsync("GameOver");
         }
         try
         {
@@ -41,11 +42,16 @@ public class djScript : MonoBehaviour{
             EnemiesOnRadius.enemies.Add(collision.gameObject.tag, aux); // Adiciona o Arraylist com o mais próximo já removido
 
             Destroy(lixo); // Finalmente, destroy o gameObject
+            playSound("SkeletonDead");
         }
         catch (KeyNotFoundException e)
         {
             //Debug.Log("Não há inimigos para essa nota no raio");
         }
+    }
+
+    private void playSound(string sound) {
+        FindObjectOfType<AudioManager>().Play(sound);
     }
 
     private void FixedUpdate()
