@@ -10,6 +10,7 @@ TagManager:
   - Enemy3
   - Enemy4
   - SpawnPoint
+  - PauseMenu
   layers:
   - Default
   - TransparentFX

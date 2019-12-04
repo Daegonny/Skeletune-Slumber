@@ -2459,6 +2459,36 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 3612420349378545667, guid: b51f3e633af43eb488f36718c3382a7b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4841859436767430573, guid: b51f3e633af43eb488f36718c3382a7b,
+        type: 3}
+      propertyPath: m_TagString
+      value: PauseMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 121999448608826961, guid: b51f3e633af43eb488f36718c3382a7b,
+        type: 3}
+      propertyPath: m_TagString
+      value: PauseMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 2086641452886120154, guid: b51f3e633af43eb488f36718c3382a7b,
+        type: 3}
+      propertyPath: m_TagString
+      value: PauseMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 8713613465009105023, guid: b51f3e633af43eb488f36718c3382a7b,
+        type: 3}
+      propertyPath: m_TagString
+      value: PauseMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 1047511700632035595, guid: b51f3e633af43eb488f36718c3382a7b,
+        type: 3}
+      propertyPath: m_TagString
+      value: PauseMenu
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b51f3e633af43eb488f36718c3382a7b, type: 3}
 --- !u!1001 &7569513968057043803
