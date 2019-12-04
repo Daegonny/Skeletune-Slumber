@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     GameObject[] pauseObjects;
-    //AudioManager audio;
 
     // Use this for initialization
     void Start()
@@ -19,7 +18,6 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         //uses the p button to pause and unpause the game
         if (Input.GetKeyDown(KeyCode.P))
         {
@@ -27,16 +25,12 @@ public class PauseMenu : MonoBehaviour
             {
                 Time.timeScale = 0;
                 showPaused();
-                //audio.PauseTheme();
-                /*AudioManager pause = GetComponent<AudioManager>();
-                pause.PauseTheme();**/
             }
             else if (Time.timeScale == 0)
             {
                 Debug.Log("high");
                 Time.timeScale = 1;
                 hidePaused();
-                //GetComponent<AudioManager>().ResumeTheme();
             }
         }
     }

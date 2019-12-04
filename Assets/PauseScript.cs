@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseScript : MonoBehaviour
 {
     GameObject[] pauseObjects;
+    AudioManager audioManager;
 
     // Use this for initialization
     void Start()
@@ -22,14 +23,16 @@ public class PauseScript : MonoBehaviour
         //uses the p button to pause and unpause the game
         if (Input.GetKeyDown(KeyCode.P))
         {
+            audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
             if (Time.timeScale == 1)
             {
+                audioManager.SetThemeVolume(0.3f);
                 Time.timeScale = 0;
-                showPaused();
+                showPaused();                
             }
             else if (Time.timeScale == 0)
             {
-                Debug.Log("high");
+                audioManager.SetThemeVolume(0.7f);
                 Time.timeScale = 1;
                 hidePaused();
             }

@@ -31,17 +31,11 @@ public class AudioManager : MonoBehaviour {
         s.source.Play();
     }
 
-    public void PauseTheme()
+    public bool SetThemeVolume(float volume)
     {
         Sound s = Array.Find(sounds, sound => sound.name == "Theme");
 
-        s.source.Pause();
-    }
-
-    public void ResumeTheme()
-    {
-        Sound s = Array.Find(sounds, sound => sound.name == "Theme");
-
-        s.source.Play();
+        s.source.volume = volume;
+        return true;
     }
 }
