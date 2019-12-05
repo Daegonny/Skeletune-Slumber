@@ -24,11 +24,15 @@ public class MenuScript : MonoBehaviour
     }
 
     public void goesToTutorialScene() {
-         Debug.Log("goesToTutorial");
+        UnityEngine.SceneManagement.SceneManager.LoadScene(6);
     }
 
     public void goesToAboutScene() {
-         Debug.Log("goesToTutorial");
+        UnityEngine.SceneManagement.SceneManager.LoadScene(7);
+    }
+
+    public void goesToMenuPrincipal() {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
     public void exitGame()
     {
