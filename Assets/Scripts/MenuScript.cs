@@ -20,6 +20,7 @@ public class MenuScript : MonoBehaviour
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
         UnityEngine.SceneManagement.SceneManager.LoadScene(nextSceneIndex);
         Debug.Log("dkjfnsdkjfn");
+        PlayerPrefs.SetInt ("highscore", 0);
     }
 
     public void goesToTutorialScene() {

@@ -13,7 +13,7 @@ public class EnemiesOnRadius : MonoBehaviour
     private string[][] melodia; // Array de notas = uma melodia
     public int notaAtual; // Indicador da nota atual
     public Text textScore;
-    public int  score = 0;
+    public int  score;
 
     private string[] melodiaAtual;
 
@@ -43,6 +43,9 @@ public class EnemiesOnRadius : MonoBehaviour
         melodias.Add("Enemy2", melodia[1]);
         melodias.Add("Enemy3", melodia[2]);
         melodias.Add("Enemy4", melodia[3]);
+
+        score = PlayerPrefs.GetInt ("highscore");
+        textScore.text = score.ToString();
     }
 
     void calculaMaisProximo()
@@ -197,6 +200,9 @@ public class EnemiesOnRadius : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+         PlayerPrefs.SetInt ("highscore", score);
+         Debug.Log(PlayerPrefs.GetInt ("highscore").ToString());
+
         if((Input.GetKeyUp("left") || Input.GetKeyUp("right") || Input.GetKeyUp("up") || Input.GetKeyUp("down")) && (timer > 6 || timer <= 0)) // Se houve input do jogador e o timer está fora de uso
         {
             timer = 3; // O timer volta pra 6s

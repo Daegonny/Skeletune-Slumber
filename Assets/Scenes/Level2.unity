@@ -1758,6 +1758,11 @@ PrefabInstance:
       propertyPath: secondRadius
       value: 
       objectReference: {fileID: 1704639745}
+    - target: {fileID: 3612420349378545667, guid: b51f3e633af43eb488f36718c3382a7b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b51f3e633af43eb488f36718c3382a7b, type: 3}
 --- !u!1001 &1659186935
