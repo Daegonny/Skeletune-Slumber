@@ -14,7 +14,7 @@ public class Navigation : MonoBehaviour
     {
         exitToMainMenuButton = GameObject.Find("ExitToMainMenuButton").GetComponent<Button>();
         exitToMainMenuButton.onClick.AddListener(ExitToMainMenu);
-        Debug.Log(exitToMainMenuButton);
+        //Debug.Log(exitToMainMenuButton);
     }
 
     // Update is called once per frame
